@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Screening Page</title>
+</head>
+<body style="background-color:rgb(203, 205, 223)">
+    
+    <form id = resumeForm method="post" style="width:600px;margin:auto;" enctype="multipart/form-data" target="_blank" >
+		<div  style="vertical-align: middle;text-align: center;">
+			<h1 style="text-align:center;font-family: sans-serif;font-weight:300;display: inline-block;width: 82%;margin: 300 600 15px 3px;vertical-align: 30px;">Resume Screener</h1>
+		</div>
+		<div style="margin: 20px;border:30px solid rgb(83, 83, 84);background-color:#bebaca;">
+			<div>
+				<h3 style="font-family: sans-serif;font-weight: normal">Upload Job Description:</h3>
+				<input type="file" name="reqFile">
+			</div>
+			<div>
+				<h3 style="margin-right:90px; font-family: sans-serif;font-weight: normal">Upload Resume Files:</h3>
+				<input type="file" name="resume_files" multiple>
+			</div>
+			<div style="margin-top:20px;text-align:center;">
+				<button type="submit"style="width: 20%;height: 25px;background: transparent;color: white;background-color: dimgrey;"  value="submit">Submit</button>
+			 </div>
+			 <div style="margin:20px">
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+				<ul class=flashes>
+					{% for message in messages %}
+					<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+				{% endwith %}
+			</div>
+		</div>
+    </form>
+</body>
+</html>
